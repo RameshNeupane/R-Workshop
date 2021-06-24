@@ -1,0 +1,3 @@
+"0","##education and health_ins is qualitative values so we use mode for the missing value"
+"0","wage$education[is.na(wage$education)]<- names(table(wage$education)) [table(wage$education)== max(table(wage$education))]"
+"0","wage$health_ins[is.na(wage$health_ins)]<- names(table(wage$health_ins)) [table(wage$health_ins)== max(table(wage$health_ins))]"

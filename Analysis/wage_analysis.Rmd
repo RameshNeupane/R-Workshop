@@ -1,0 +1,172 @@
+---
+title: "new_wage_analysis"
+author: "Ramesh Neupane"
+date: "November 29, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Loading libraries
+library(dplyr) ##Data manipulation
+library(ggplot2) ##Data manipulation
+```
+```{r}
+##Loading data
+wage <- read.csv("Wage.csv",stringsAsFactors = FALSE)
+```
+```{r}
+##Removing index column
+wage<- select(wage, -X)
+wage
+```
+
+```{r}
+## Dimension of data
+dim(wage)
+```
+
+```{r}
+print("No. of rows: ")
+nrow(wage)
+```
+
+```{r}
+cat("No. of rows: ", nrow(wage))
+cat("\nNo. of columns: ", ncol(wage))
+```
+
+```{r}
+##Name of heading or name of columns
+colnames(wage)
+```
+
+```{r}
+row.names(wage)
+```
+```{r}
+head(wage)
+```
+```{r}
+heat.colors(11, alpha = 1)
+wage
+```
+
+```{r}
+table(wage$education)
+
+table(wage$race)
+
+table(wage$jobclass)
+
+
+table(wage$health)
+
+
+table(wage$health_ins)
+```
+
+```{r}
+colSums(is.na(wage))
+```
+```{r}
+##education and health_ins is qualitative values so we use mode for the missing value
+wage$education[is.na(wage$education)]<- names(table(wage$education)) [table(wage$education)== max(table(wage$education))]
+wage$health_ins[is.na(wage$health_ins)]<- names(table(wage$health_ins)) [table(wage$health_ins)== max(table(wage$health_ins))]
+```
+```{r}
+## wage is quantitave value so we use median for those missing values
+wage$wage[is.na(wage$wage)]<-median(wage$wage, na.rm = TRUE)
+```
+```{r}
+colSums(is.na(wage))
+
+```
+
+```{r}
+##Removing the region column
+wage<- select(wage, -region)
+wage
+```
+
+```{r}
+colSums(is.na(wage))
+```
+```{r}
+wage$health_ins[wage$health_ins== "1. Yes"]<-"Yes"
+wage$health_ins[wage$health_ins== "2. No"] <- "No"
+wage$health[wage$health== "<=Good"] <- "Good"
+wage$health[wage$health== ">=Very Good"] <- "Very Good"
+
+```
+
+```{r}
+cat("maximum value of wage paid is: ", max(wage$wage))
+cat("\nminimum age of people in data: ", min(wage$age))
+```
+
+```{r}
+mean_wage<-mean(wage$wage)
+med_age<- median(wage$age)
+cat("average of wage is: ",mean_wage," and median of age is: ",med_age)
+```
+```{r}
+#calculation of mode
+mod_marital<-names(table(wage$maritl))[table(wage$maritl)== max(table(wage$maritl))]
+cat("most repeated value in marital column is: ",mod_marital)
+```
+```{r}
+#Calcualtion of range(largest value - smallest value)
+range_logwage<- range(wage$logwage)
+cat("Range of logwage is: ",range_logwage)
+```
+```{r}
+cat("  quantile of age is\n")
+quantile(wage$age,c(0.0,0.2,0.4,0.6,0.8,1.0))
+quan_age<-quantile(wage$age,c(0.0,0.2,0.4,0.6,0.8,1.0))
+cat(" quantiles of age is", quan_age)
+```
+```{r}
+var(wage$wage)
+```
+```{r}
+sd_wage<-sd(wage$wage)
+sd_wage
+mean(wage$wage)
+
+```
+```{r}
+summary(wage)
+boxplot(wage$wage)
+```
+
+
+```{r}
+str(wage)
+```
+
+```{r}
+cor(wage%>% select(wage, age, logwage))
+```
+```{r}
+ggplot(data = wage, aes(age))+ geom_density()
+ggplot(data = wage, aes(wage))+ geom_density()
+ggplot(data = wage, aes(education))+ geom_density()
+```
+```{r}
+ggplot(as.data.frame(table(wage$race)), aes(Var1,Freq))+geom_col(aes(fill= Var1))
+ggplot(as.data.frame(table(wage$education)), aes(Var1,Freq))+geom_col(aes(fill= Var1))
+```
+```{r}
+#Histogram
+ggplot(data = wage, aes(age))+geom_histogram()
+
+```
+
+
+
+
+

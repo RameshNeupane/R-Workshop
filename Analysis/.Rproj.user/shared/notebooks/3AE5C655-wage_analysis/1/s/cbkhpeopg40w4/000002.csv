@@ -1,0 +1,2 @@
+"0","##Loading data"
+"0","wage <- read.csv(""Wage.csv"",stringsAsFactors = FALSE)"

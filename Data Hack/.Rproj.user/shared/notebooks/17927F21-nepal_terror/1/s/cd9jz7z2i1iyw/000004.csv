@@ -1,0 +1,2 @@
+"0","gtd<- read.csv(""gtd_nepal.csv"",stringsAsFactors = FALSE)"
+"0","gtd"

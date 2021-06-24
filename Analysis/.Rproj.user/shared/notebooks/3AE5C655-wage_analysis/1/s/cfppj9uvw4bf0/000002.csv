@@ -1,0 +1,2 @@
+"0","## wage is quantitave value so we use median for those missing values"
+"0","wage$wage[is.na(wage$wage)]<-median(wage$wage, na.rm = TRUE)"

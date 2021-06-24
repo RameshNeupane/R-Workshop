@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543657204559.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "272602120",
+    "id" : "932F4AB8",
+    "lastKnownWriteTime" : 1543657203,
+    "last_content_update" : 1543657203,
+    "path" : "D:/R programming/Data Hack/gtd_presentation.Rpres",
+    "project_path" : "gtd_presentation.Rpres",
+    "properties" : {
+        "cursorPosition" : "23,54",
+        "scrollLine" : "10"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_presentation"
+}

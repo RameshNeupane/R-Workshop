@@ -1,0 +1,107 @@
+---
+title: "R_Hack"
+author: "Ramesh Neupane"
+date: "December 1, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+```
+```{r}
+gtd<- read.csv("gtd_nepal.csv",stringsAsFactors = FALSE)
+gtd
+```
+
+```{r}
+str(gtd)
+```
+```{r}
+colnames(gtd)
+```
+```{r}
+colSums(is.na(gtd))
+```
+```{r}
+
+gtd<-select(gtd,-X)
+```
+```{r}
+colSums(is.na(gtd))
+```
+```{r}
+gtd<-select(gtd, -ransom)
+```
+```{r}
+colnames(gtd)
+colSums(is.na(gtd))
+
+```
+```{r}
+mean(gtd$nkill,na.rm = TRUE)
+median(gtd$nkill,na.rm = TRUE)
+```
+```{r}
+gtd$nkill[is.na(gtd$nkill)]<-median(gtd$nkill, na.rm = TRUE)
+gtd$nwound[is.na(gtd$nwound)]<-median(gtd$nwound, na.rm = TRUE)
+gtd$latitude[is.na(gtd$latitude)]<-mean(gtd$latitude, na.rm = TRUE)
+gtd$longitude[is.na(gtd$longitude)]<-mean(gtd$longitude, na.rm = TRUE)
+```
+```{r}
+colSums(is.na(gtd))
+```
+
+```{r}
+gtd<- select(gtd,-region, -region_txt, -country,-country_txt)
+```
+```{r}
+colnames(gtd)
+
+```
+
+```{r}
+ggplot(as.data.frame(table(gtd$provstate)),aes(Var1,Freq))+geom_col(aes(fill= Var1))
+```
+
+```{r}
+head(gtd)
+```
+
+
+
+```{r}
+mode<- names(table(gtd$attacktype1))[table(gtd$attacktype1)== max(table(gtd$attacktype1))]
+mode
+```
+
+```{r}
+ggplot(as.data.frame(table(gtd$attacktype1_txt)),aes(Var1,Freq))+geom_col(aes(fill= Var1))+labs(title = "No.of people died in different attacks")
+ggplot(as.data.frame(table(gtd$dbsource)),aes(Var1,Freq))+geom_col(aes(fill= Var1))+labs(title = "Data collected from various sources")
+
+
+```
+```{r}
+teror.year<- as.data.frame(table(gtd$iyear))
+names(teror.year) <- c("Year","Attack_Count")
+```
+
+
+```{r fig.height=10, fig.width=10}
+ggplot(teror.year,aes(x=Year,y=Attack_Count)) + geom_line()+geom_point()
+
+```
+
+
+```{r}
+library(maps)
+mapStates = map("state", fill = TRUE, plot = FALSE)
+leaflet(data = mapStates) %>% addTiles() %>%
+  addPolygons(fillColor = topo.colors(10, alpha = NULL), stroke = FALSE)
+```
+

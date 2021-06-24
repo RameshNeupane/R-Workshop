@@ -1,0 +1,2 @@
+"0","ggplot(teror.year,aes(x=Year,y=Attack_Count)) + geom_line()+geom_point()"
+"0",""

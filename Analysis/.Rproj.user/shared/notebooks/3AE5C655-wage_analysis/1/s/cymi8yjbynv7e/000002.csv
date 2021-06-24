@@ -1,0 +1,3 @@
+"0","##Removing index column"
+"0","wage<- select(wage, -X)"
+"0","wage"

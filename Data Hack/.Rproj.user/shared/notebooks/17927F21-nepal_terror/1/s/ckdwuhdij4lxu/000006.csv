@@ -1,0 +1,1 @@
+"0","ggplot(as.data.frame(table(gtd$attacktype1_txt)),aes(Var1,Freq))+geom_col(aes(fill= Var1))+labs(title = ""No.of people died in different attacks"")"

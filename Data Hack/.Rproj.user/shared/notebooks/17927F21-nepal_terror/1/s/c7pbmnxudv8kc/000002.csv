@@ -1,0 +1,2 @@
+"0","teror.year<- as.data.frame(table(gtd$iyear))"
+"0","names(teror.year) <- c(""Year"",""Attack_Count"")"

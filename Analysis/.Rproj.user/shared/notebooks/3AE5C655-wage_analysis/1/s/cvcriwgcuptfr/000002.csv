@@ -1,0 +1,3 @@
+"0","ggplot(data = wage, aes(age))+ geom_density()"
+"2","Error in ggplot(data = wage, aes(age)) : could not find function ""ggplot""
+"

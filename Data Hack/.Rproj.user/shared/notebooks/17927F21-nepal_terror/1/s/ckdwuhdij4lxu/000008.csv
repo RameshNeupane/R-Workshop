@@ -1,0 +1,1 @@
+"0","ggplot(as.data.frame(table(gtd$dbsource)),aes(Var1,Freq))+geom_col(aes(fill= Var1))+labs(title = ""Data collected from various sources"")"

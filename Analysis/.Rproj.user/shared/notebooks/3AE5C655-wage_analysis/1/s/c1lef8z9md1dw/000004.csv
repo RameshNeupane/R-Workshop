@@ -1,0 +1,1 @@
+"0","ggplot(as.data.frame(table(wage$race)), aes(Var1,Freq))+geom_col(aes(fill= Var1))"

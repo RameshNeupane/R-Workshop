@@ -1,0 +1,3 @@
+"0","##Removing the region column"
+"0","wage<- select(wage, -region)"
+"0","wage"

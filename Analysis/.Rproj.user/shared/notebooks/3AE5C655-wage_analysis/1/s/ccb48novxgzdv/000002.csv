@@ -1,0 +1,6 @@
+"0","#calculation of mode"
+"0","mod_marital<-names(table(wage$maritl))[table(wage$maritl)== max(table(wage$maritl))]"
+"0","cat(""most repeated value in marital column is: "",mod_marital)"
+"1","most repeated value in marital column is: "
+"1"," "
+"1","Married"

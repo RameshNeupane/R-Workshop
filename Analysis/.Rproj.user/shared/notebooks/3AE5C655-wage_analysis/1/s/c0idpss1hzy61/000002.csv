@@ -1,0 +1,5 @@
+"0","wage$health_ins[wage$health_ins== ""1. Yes""]<-""Yes"""
+"0","wage$health_ins[wage$health_ins== ""2. No""] <- ""No"""
+"0","wage$health[wage$health== ""<=Good""] <- ""Good"""
+"0","wage$health[wage$health== "">=Very Good""] <- ""Very Good"""
+"0",""

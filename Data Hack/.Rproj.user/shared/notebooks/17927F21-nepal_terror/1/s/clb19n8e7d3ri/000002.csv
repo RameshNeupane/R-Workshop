@@ -1,0 +1,4 @@
+"0","gtd$nkill[is.na(gtd$nkill)]<-median(gtd$nkill, na.rm = TRUE)"
+"0","gtd$nwound[is.na(gtd$nwound)]<-median(gtd$nwound, na.rm = TRUE)"
+"0","gtd$latitude[is.na(gtd$latitude)]<-mean(gtd$latitude, na.rm = TRUE)"
+"0","gtd$longitude[is.na(gtd$longitude)]<-mean(gtd$longitude, na.rm = TRUE)"

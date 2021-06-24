@@ -1,0 +1,1 @@
+"0","ggplot(data = wage, aes(education))+ geom_density()"

@@ -1,0 +1,116 @@
+---
+title: "R_Hack"
+author: "Ramesh Neupane"
+date: "December 1, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+```
+
+
+
+
+
+```{r echo=TRUE}
+gtd<- read.csv("C:/Users/User/Desktop/Data Hack/gtd_nepal.csv",stringsAsFactors = FALSE)
+head(gtd,3)
+```
+
+```{r echo=TRUE}
+str(gtd)
+```
+```{r eval=FALSE, include=FALSE}
+colnames(gtd)
+```
+```{r eval=FALSE, include=FALSE}
+colSums(is.na(gtd))
+```
+```{r}
+
+gtd<-select(gtd,-X)
+```
+```{r}
+colSums(is.na(gtd))
+```
+```{r}
+gtd<-select(gtd, -ransom)
+```
+```{r}
+colnames(gtd)
+colSums(is.na(gtd))
+
+```
+```{r}
+mean(gtd$nkill,na.rm = TRUE)
+median(gtd$nkill,na.rm = TRUE)
+```
+```{r}
+gtd$nkill[is.na(gtd$nkill)]<-median(gtd$nkill, na.rm = TRUE)
+gtd$nwound[is.na(gtd$nwound)]<-median(gtd$nwound, na.rm = TRUE)
+gtd$latitude[is.na(gtd$latitude)]<-mean(gtd$latitude, na.rm = TRUE)
+gtd$longitude[is.na(gtd$longitude)]<-mean(gtd$longitude, na.rm = TRUE)
+```
+```{r}
+colSums(is.na(gtd))
+```
+
+```{r}
+gtd<- select(gtd,-region, -region_txt, -country,-country_txt)
+```
+```{r}
+colnames(gtd)
+
+```
+
+```{r fig.height=10, fig.width=10, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+ggplot(as.data.frame(table(gtd$provstate)),aes(Var1,Freq))+geom_col(aes(fill= Var1))
+```
+
+```{r}
+head(gtd)
+```
+
+
+
+```{r}
+mode<- names(table(gtd$attacktype1))[table(gtd$attacktype1)== max(table(gtd$attacktype1))]
+mode
+```
+
+```{r fig.width=12}
+ggplot(as.data.frame(table(gtd$attacktype1_txt)),aes(Var1,Freq))+geom_col()+labs(title = "No.of people died in different attacks")
+ggplot(as.data.frame(table(gtd$dbsource)),aes(Var1,Freq))+geom_col()+labs(title = "Data collected from various sources")
+
+
+```
+```{r}
+teror.year<- as.data.frame(table(gtd$iyear))
+names(teror.year) <- c("Year","Attack_Count")
+```
+
+
+```{r fig.height=10, fig.width=10}
+ggplot(teror.year,aes(x=Year,y=Attack_Count)) + geom_col()
+
+```
+
+
+
+```{r}
+loc.df <- as.data.frame(table(gtd$city))
+top_city <- tail(loc.df,10)
+```
+
+```{r fig.height=10, fig.width=10}
+names(top_city)<- c("City","No_of_Attack")
+ggplot(top_city,aes(City,No_of_Attack)) + geom_col(aes(fill=No_of_Attack)) + labs(title = "Top Terror attacked city")
+```
+

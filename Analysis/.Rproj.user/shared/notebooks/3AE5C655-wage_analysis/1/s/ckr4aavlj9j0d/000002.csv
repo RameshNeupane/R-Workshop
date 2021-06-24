@@ -1,0 +1,4 @@
+"0","#Histogram"
+"0","ggplot(data = wage, aes(age))+geom_histogram()"
+"2","Error in ggplot(data = wage, aes(age)) : could not find function ""ggplot""
+"

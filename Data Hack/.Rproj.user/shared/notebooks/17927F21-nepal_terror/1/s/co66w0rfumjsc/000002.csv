@@ -1,0 +1,1 @@
+"0","gtd<- select(gtd,-region, -region_txt, -country,-country_txt)"

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1557377792737.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "760910488",
+    "id" : "46F7F45F",
+    "lastKnownWriteTime" : 1543657144,
+    "last_content_update" : 1557378144966,
+    "path" : "D:/R programming/Data Hack/nepal_terror.Rmd",
+    "project_path" : "nepal_terror.Rmd",
+    "properties" : {
+        "cursorPosition" : "95,72",
+        "last_setup_crc32" : "E2431CC0bb338d19",
+        "scrollLine" : "88"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

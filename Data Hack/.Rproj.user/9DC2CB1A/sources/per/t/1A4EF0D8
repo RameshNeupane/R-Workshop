@@ -1,0 +1,32 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543653614714.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1A4EF0D8",
+    "lastKnownWriteTime" : 1543653281,
+    "last_content_update" : 1543653614714,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "465E2E27",
+        "caption" : "teror.year",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=teror.year&cache_key=465E2E27",
+        "displayedObservations" : 25,
+        "environment" : "",
+        "object" : "teror.year",
+        "preview" : 0,
+        "totalObservations" : 25,
+        "variables" : 2
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
